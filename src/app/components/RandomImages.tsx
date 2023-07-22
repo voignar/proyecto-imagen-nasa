@@ -6,7 +6,7 @@ import Link from 'next/link';
 export async function RandomImages(props:any) {
     const imageList = await fetcher('no-cache','&count='+props.images);
     return (
-        <div>
+        <div style={{marginTop:'20px'}}>
             <h2>Imagenes Aleatorias</h2>
             {
                 imageList?.map((image:ImageType) => (
