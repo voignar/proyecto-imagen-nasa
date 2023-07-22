@@ -1,5 +1,4 @@
 import fetcher from '../utils/fetcher'
-import Image from 'next/image';
 import {ImageType} from '../types/index'
 import Link from 'next/link';
 
@@ -12,8 +11,10 @@ export async function RandomImages(props:any) {
                 imageList?.map((image:ImageType) => (
                     <div key={image.date}>
                     <Link href={`imagen/${image.date}`}>
-                    <Image src={image.url} alt={image.title}  width={500} height={281} />
-                    <p> {image.title} </p>
+                    <small>{image.date}</small><br/>
+                    <img src={image.url} alt={image.title}  width={500} />
+                    
+                    <p> {image.title} </p><br/>
                     </Link>
                     </div>
                 ))

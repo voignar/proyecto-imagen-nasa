@@ -1,14 +1,13 @@
-import { format, subDays } from 'date-fns'
 import fetcher from '../utils/fetcher'
-import Image from 'next/image';
+import styles from './ImageOfTheDay.module.css'
 
 export async function ImageOfTheDay() {
     const imageOfDay = await fetcher('revalidate');
     return (
-        <div>
-            <h2>Imagen del día</h2>
-            <Image src={imageOfDay.url} alt={imageOfDay.title}  width={1280} height={720} />
-            <p>{imageOfDay.title}</p>            
+        <div className={styles.container}>
+            <h2 className={styles.titulo}>Imagen del día</h2>
+            <img src={imageOfDay.url} alt={imageOfDay.title} className={styles.image} />
+            <p>{imageOfDay.title}</p>        
         </div>
     )
 }
