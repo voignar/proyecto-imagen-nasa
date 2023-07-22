@@ -8,7 +8,7 @@ export async function ImageOfTheDay() {
         <div>
             <h2>Imagen del día</h2>
             <Image src={imageOfDay.url} alt={imageOfDay.title}  width={1280} height={720} />
-            <p style={{backgroundColor:'#ffffff20',color:'white'}}>{imageOfDay.title}</p>            
+            <p>{imageOfDay.title}</p>            
         </div>
     )
 }

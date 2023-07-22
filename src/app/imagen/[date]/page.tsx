@@ -1,13 +1,20 @@
+import styles from '../../page.module.css'
 import fetcher from "@/app/utils/fetcher";
 import Image from "next/image";
+import { Suspense } from "react";
+import Link from 'next/link';
+
 export default async function ImageDate({ params }: { params: { date: string } }) {
-    const image = await fetcher('', `&date=${params.date}`);
+    const image = await fetcher('static', `&date=${params.date}`);
     return (
-        <div>
+        <main className={styles.main}>
             <h2>Imagen del día {params.date}</h2>
+            <Suspense fallback={<p>Cargando imagen</p>}>
             <Image src={image.url} alt={image.title}  width={1280} height={720} />
+            </Suspense>
             <p><strong>{image.title}</strong></p>               
-            <p>{image.explanation}</p>    
-        </div>
+            <p>{image.explanation}</p><br/>
+            <Link style={{marginTop:'20px', color:'blue'}} href="../">Volver</Link> 
+        </main>
     )
 }
